@@ -16,50 +16,117 @@
 package com.example.android.flavor;
 
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.example.android.flavor.R.*;
+import static com.example.android.flavor.R.id.list_item;
+import static com.example.android.flavor.R.id.listview_flavor;
+import static com.example.android.flavor.R.id.text;
+import static com.example.android.flavor.R.id.version_name;
+
 /**
  * {@link FlavorActivity} shows a list of Android platform releases.
  * For each release, display the name, version number, and image.
+ * @version 1.1 this has since been modified to display wearable merchandise like t-shirts, and caps
+ * the titles for the orginial array are still intact but values have been altered.
  */
 public class FlavorActivity extends AppCompatActivity {
+
+    private AdapterView listView;
+    private ArrayAdapter<String>[] listAdapter;
+    private AdapterView.OnItemClickListener onItemClickListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flavor);
+        setContentView(layout.activity_flavor);
 
         // Create an ArrayList of AndroidFlavor objects
         final ArrayList<AndroidFlavor> androidFlavors = new ArrayList<AndroidFlavor>();
-        androidFlavors.add(new AndroidFlavor("Donut", "1.6", R.drawable.donut));
-        androidFlavors.add(new AndroidFlavor("Eclair", "2.0-2.1", R.drawable.eclair));
-        androidFlavors.add(new AndroidFlavor("Froyo", "2.2-2.2.3", R.drawable.froyo));
-        androidFlavors.add(new AndroidFlavor("GingerBread", "2.3-2.3.7", R.drawable.gingerbread));
-        androidFlavors.add(new AndroidFlavor("Honeycomb", "3.0-3.2.6", R.drawable.honeycomb));
-        androidFlavors.add(new AndroidFlavor("Ice Cream Sandwich", "4.0-4.0.4", R.drawable.icecream));
-        androidFlavors.add(new AndroidFlavor("Jelly Bean", "4.1-4.3.1", R.drawable.jellybean));
-        androidFlavors.add(new AndroidFlavor("KitKat", "4.4-4.4.4", R.drawable.kitkat));
-        androidFlavors.add(new AndroidFlavor("Lollipop", "5.0-5.1.1", R.drawable.lollipop));
-        androidFlavors.add(new AndroidFlavor("Marshmallow", "6.0-6.0.1", R.drawable.marshmallow));
+        androidFlavors.add(new AndroidFlavor("T- Shrit  €5.00 +VAT", "XS,S,M,L,XL,XXL", drawable.tshirt));
+        androidFlavors.add(new AndroidFlavor("Hoodie    €10.00 +VAT", "XS,S,M,L,XL,XXL", drawable.hoodie));
+        androidFlavors.add(new AndroidFlavor("Polo  €6.50 +VAT", "XS,S,M,L,XL,XXL", drawable.polo));
+        androidFlavors.add(new AndroidFlavor("Vest/Tank  €5.75 +VAT", "XS,S,M,L,XL,XXL", drawable.vest));
+        androidFlavors.add(new AndroidFlavor("Ball Cap   €12.00 +VAT", "Adjustable", drawable.ballcap));
+
 
         // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
         // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
         // in the list.
-        AndroidFlavorAdapter flavorAdapter = new AndroidFlavorAdapter(this, androidFlavors);
+        final AndroidFlavorAdapter flavorAdapter = new AndroidFlavorAdapter(this, androidFlavors);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
-        ListView listView = (ListView) findViewById(R.id.listview_flavor);
+        final ListView listView = (ListView) findViewById(id.listview_flavor);
         listView.setAdapter(flavorAdapter);
 
 
+        //setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_flavor, getResources().getStringArray(list_item)));
+
+
+
+/*
+        String[] itemsArray =  new String (androidFlavors.getText(ArrayList);
+        final ArrayAdapter myArrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_flavor,itemsArray);
+        listView.setAdapter(myArrayAdapter);
+
+
+         */
+        //let user know that image saved
+        //I have strings in strings.xml but have hardcoded here to copy/paste to students if needed
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            /**
+             * Below we have the toast method and we are trying to parse the array into the new variable item.
+             *AndroidFlavor(String vName, String vNumber, int imageResourceId)
+             * @param parent
+             * @param view
+             * @param position
+             * @param id
+             **/
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // final String[] item = getString(androidFlavors.getClass().get);
+
+                TextView textView = view.findViewById(R.id.version_name);
+                // Display a Toast message indicting the selected item
+                Toast.makeText(FlavorActivity.this, textView.getText(),
+                        Toast.LENGTH_LONG)
+                        .show();
+            }
+
+
+        });
+
+/*
+        setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                TextView textView = view.findViewById(R.id.text);
+                // Display a Toast message indicting the selected item
+                Toast.makeText(FlavorActivity.this,
+                        textView.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+    */
+    }
 }
+
 

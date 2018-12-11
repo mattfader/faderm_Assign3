@@ -1,10 +1,10 @@
 <resources>
-    <!-- Primary color of the app (shown in the app bar) -->
-    <color name="primary_color">#FF5733</color>
+    <!-- Primary color of the app (shown in the app bar#FF5733) -->
+    <color name="primary_color">#30343a</color>
 
-    <!-- Primary dark color of the app (shown in the status bar) -->
-    <color name="primary_dark_color">#FF6733</color>
-    #68EFAD
+    <!-- Primary dark color of the app (shown in the status bar#FF6733) -->
+    <color name="primary_dark_color">#30343a</color>
+
 
 
     <!-- Background color for the family members category -->

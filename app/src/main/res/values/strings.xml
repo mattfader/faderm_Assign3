@@ -35,6 +35,7 @@
     <string name="image_confirm">Image saved successfully </string>
     <string name="to_email">my-tshirt@sda.ie</string>
     <string name="email_subject">Order Request </string>
+    <string name="delivery_details">Delivery or Collection details:</string>
 
 
 </resources>

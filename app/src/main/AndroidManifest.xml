@@ -34,6 +34,10 @@
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+
+                <!-- https://developer.android.com/guide/components/intents-common#CameraStill -->
+                <action android:name="android.intent.action.STILL_IMAGE_CAMERA" />
+
             </intent-filter>
         </activity>
         <activity android:name=".OrderActivity"
