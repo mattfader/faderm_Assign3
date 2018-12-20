@@ -71,24 +71,12 @@ public class FlavorActivity extends AppCompatActivity {
         listView.setAdapter(flavorAdapter);
 
 
-        //setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_flavor, getResources().getStringArray(list_item)));
-
-
-
-/*
-        String[] itemsArray =  new String (androidFlavors.getText(ArrayList);
-        final ArrayAdapter myArrayAdapter = new ArrayAdapter<String> (this, R.layout.activity_flavor,itemsArray);
-        listView.setAdapter(myArrayAdapter);
-
-
-         */
-        //let user know that image saved
-        //I have strings in strings.xml but have hardcoded here to copy/paste to students if needed
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             /**
              * Below we have the toast method and we are trying to parse the array into the new variable item.
-             *AndroidFlavor(String vName, String vNumber, int imageResourceId)
+             * AndroidFlavor(String vName, String vNumber, int imageResourceId)
+             *
              * @param parent
              * @param view
              * @param position
@@ -97,7 +85,6 @@ public class FlavorActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                // final String[] item = getString(androidFlavors.getClass().get);
 
                 TextView textView = view.findViewById(R.id.version_name);
                 // Display a Toast message indicting the selected item
@@ -109,23 +96,6 @@ public class FlavorActivity extends AppCompatActivity {
 
         });
 
-/*
-        setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                TextView textView = view.findViewById(R.id.text);
-                // Display a Toast message indicting the selected item
-                Toast.makeText(FlavorActivity.this,
-                        textView.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
-    */
     }
 }
 
