@@ -54,7 +54,7 @@ public class FlavorActivity extends AppCompatActivity {
 
         // Create an ArrayList of AndroidFlavor objects
         final ArrayList<AndroidFlavor> androidFlavors = new ArrayList<AndroidFlavor>();
-        androidFlavors.add(new AndroidFlavor("T- Shrit  €5.00 +VAT", "XS,S,M,L,XL,XXL", drawable.tshirt));
+        androidFlavors.add(new AndroidFlavor("T- Shirt  €5.00 +VAT", "XS,S,M,L,XL,XXL", drawable.tshirt));
         androidFlavors.add(new AndroidFlavor("Hoodie    €10.00 +VAT", "XS,S,M,L,XL,XXL", drawable.hoodie));
         androidFlavors.add(new AndroidFlavor("Polo  €6.50 +VAT", "XS,S,M,L,XL,XXL", drawable.polo));
         androidFlavors.add(new AndroidFlavor("Vest/Tank  €5.75 +VAT", "XS,S,M,L,XL,XXL", drawable.vest));
